@@ -1,5 +1,6 @@
 import {AppPage} from "./abstractClass";
 import {expect} from "@playwright/test";
+import {Constants} from "../fixtures/constants/constants";
 
 export class Signup extends AppPage {
     public pagePath = '/register';
@@ -9,6 +10,7 @@ export class Signup extends AppPage {
     private passwordInputField = this.page.getByPlaceholder('Please Enter Your Password')
     private checkBoxSubscribeToNewsletter = this.page.getByText('Subscribe to newsletter');
     private signUpButton = this.page.getByRole('button', {name: "Sign Up"})
+    private notification = this.page.locator('.notification-title')
 
     async expectLoaded(message = "Expect register page is loaded"): Promise<void> {
         await expect(this.emailInputField).toBeVisible()
@@ -27,6 +29,6 @@ export class Signup extends AppPage {
     }
 
     async expectToBeRegistered() {
-        await expect(this.page.locator('.notification-title')).toContainText('You have signed up successfully! You will be receiving an email as well. Thank you!')
+        await expect(this.notification).toContainText(Constants.SUCCESSFUL_SIGN_UP_NOTIFICATION_TEXT)
     }
 }

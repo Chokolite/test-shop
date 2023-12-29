@@ -10,7 +10,7 @@ export class Shop extends AppPage {
         return Promise.resolve(undefined);
     }
 
-    async openItem(itemName: string) {
+    async openProduct(itemName: string) {
         await this.page.locator('.item-name', {hasText: itemName}).click()
     }
 }

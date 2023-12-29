@@ -1,8 +1,9 @@
 import {faker} from "@faker-js/faker";
 import User from "../model/user";
+import {Constants} from "../fixtures/constants/constants";
 
 export class UserHelper {
-    createRandomUserWithCredentials() {
+    public createRandomUserWithCredentials() {
         const firstName = faker.person.firstName()
         const lastName = faker.person.lastName()
         const email = `${firstName}.${lastName}@test.com`
@@ -11,6 +12,6 @@ export class UserHelper {
     }
 
     public defaultUser() {
-        return new User("John", "Dou", "John123.Dou123@test.com", "qwerty")
+        return new User(Constants.DEFAULT_FIRST_NAME, Constants.DEFAULT_LAST_NAME, Constants.DEFAULT_EMAIL, Constants.DEFAULT_PASSWORD)
     }
 }

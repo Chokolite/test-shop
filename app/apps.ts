@@ -6,6 +6,7 @@ import {Dashboard} from "./dashboard";
 import {Order} from "./order";
 import {Product} from "./product";
 import {Shop} from "./shop";
+import {MiniCart} from "./miniCart";
 
 export class Apps extends PageHolder {
     public home = new Home(this.page)
@@ -15,4 +16,5 @@ export class Apps extends PageHolder {
     public order = new Order(this.page)
     public product = new Product(this.page)
     public shop = new Shop(this.page)
+    public miniCart = new MiniCart(this.page)
 }

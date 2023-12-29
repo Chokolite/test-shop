@@ -1,5 +1,6 @@
 import {test} from "@playwright/test";
 import {Apps} from '../app/apps'
+import {Constants} from "./constants/constants";
 
 export const baseFixture = test.extend<{ app: Apps }>({
     app: async ({page}, use) => {
@@ -17,8 +18,8 @@ export type DefaultUserOption = {
 export const loggedUserFixture = baseFixture.extend<DefaultUserOption & { app: Apps }>({
     defaultUser: [
         {
-            email: 'John123.Dou123@test.com',
-            password: 'qwerty'
+            email: Constants.DEFAULT_EMAIL,
+            password: Constants.DEFAULT_PASSWORD
         },
         {
             option: true
