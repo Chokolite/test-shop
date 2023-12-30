@@ -2,7 +2,7 @@ import {AppPage} from "./abstractClass";
 import {expect} from "@playwright/test";
 import {Constants} from "../fixtures/constants/constants";
 
-export class Signup extends AppPage {
+export class SignUp extends AppPage {
     public pagePath = '/register';
     private emailInputField = this.page.getByRole('main').getByPlaceholder('Please Enter Your Email')
     private firstNameInputField = this.page.getByPlaceholder('Please Enter Your First Name')
