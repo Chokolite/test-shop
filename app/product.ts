@@ -1,5 +1,4 @@
 import {AppPage} from "./abstractClass";
-import {StockStatus} from "../model/stockStatus";
 export class Product extends AppPage {
     public pagePath = "/product"
     private quantityInputField = this.page.getByPlaceholder("Product Quantity")
@@ -19,12 +18,12 @@ export class Product extends AppPage {
         await this.quantityInputField.fill(quantity.toString())
     }
 
-    async inStock() {
-        return (await this.stockStatus.textContent()) == StockStatus.InStock;
+    async getStockStatus() {
+        return await this.stockStatus.textContent()
     }
 
-    async isAddToCartDisabled() {
-        return (await this.addToBagButton.isDisabled()) == true
+    async getAddToBagButtonStatus() {
+        return this.addToBagButton
     }
 
 }

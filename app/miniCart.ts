@@ -18,12 +18,12 @@ export class MiniCart extends Component {
         await expect(this.quantityNumber).toHaveText(quantity.toString())
     }
 
-    async removeFirstProduct() {
-        await this.trashButton.nth(0).click()
+    async removeProductByIndex(index: number) {
+        await this.trashButton.nth(index).click()
     }
 
     async isMiniCartEmpty() {
-        return (await this.page.getByText('Your shopping cart is empty').isVisible())
+        expect(await this.page.getByText('Your shopping cart is empty').isVisible())
     }
 
     async clearCart() {
