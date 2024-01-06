@@ -8,7 +8,6 @@ env:
   prj_name: test-shop
 
 jobs:
-  build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
