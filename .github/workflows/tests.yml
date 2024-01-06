@@ -1,0 +1,26 @@
+name: tests
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+env:
+  prj_name: test-shop
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version:
+          [ 20.10.5 ]
+
+    steps:
+      - uses: actions/checkout@v3
+      - name: test github actions with playwright and node.js ${{ matrix.node-version}}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{matrix.node-version}}
+          cache: 'npm'
+      - run: npm install
+      - run: npx playwright test
